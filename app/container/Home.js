@@ -7,7 +7,11 @@ class Home extends React.Component {
     }
     render() {
         return (
-            <Link to='/home/success'>我是主页</Link>
+            <div>
+                <h2>home页</h2>
+                <h3>{this.props.params.userId}</h3>
+                {this.props.children}
+            </div>
         )
     }
 }

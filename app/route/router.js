@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Router, Route, Link, Redirect, hashHistory, browserHistory, IndexRoute } from 'react-router'
 
-import Home from '../container/home/Home'
+import App from '../container/App'
+import Home from '../container/Home'
+import Individual from '../container/Individual'
 
 
 export default class Routers extends Component {
@@ -17,10 +19,13 @@ export default class Routers extends Component {
     render() {
         return (
             <Router history={hashHistory}>
-                <Route path='/' component={Home}
+                <Route path='/' component={App}
                     onLeave={({ params }) => {
                         console.log('离开了登录页 我们去首页');
                     }}>
+                </Route>
+                <Route path='/home/:userId' component={Home}>
+                    <Route path='individual/:customerId' component={Individual} />
                 </Route>
             </Router>
         )
